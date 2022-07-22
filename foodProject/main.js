@@ -7,6 +7,13 @@ const splashScreen = document.querySelector('.splash-screen')
 const messageFade = document.querySelector('#messageFade')
 const nameComp = document.querySelector('.nameComponent')
 
+// Oscar
+const container = document.querySelector(".container")
+const foodTitle = document.querySelector(".food-title")
+const foodResult = document.querySelector(".food-result")
+const foodItem = document.querySelector(".food-item")
+const foodButton = document.querySelector('.food');
+
 function contentFade() {
     setTimeout(()=>{
         content.classList.add('contentContainerToFade')
@@ -112,3 +119,33 @@ function showSuggestions(list){
     suggBox.innerHTML = listData;
 }
 
+
+
+
+
+const getFood = async () => {
+    const apiData = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=9f84e0adf95c447bac51d4eef9d24191`)
+    const jsonData = await apiData.json()
+    const foodResult = jsonData.recipes
+
+foodItem.innerText = ''
+
+for (let recipe of foodResult) {
+
+    const foodPlateTitle = recipe.title
+    
+    for(let ingredients of recipe){
+        
+
+        const recipeInfo = document.createElement('div')
+        recipeInfo.className = 'recipe-container'
+        recipeInfo.innerHTML = 
+        `<div>${foodPlateTitle}</div>
+         <img>${foodImage}<img>   
+        `
+        foodItem.append(recipeInfo)
+    }
+}
+}
+
+foodButton.addEventListener('click', getFood)
