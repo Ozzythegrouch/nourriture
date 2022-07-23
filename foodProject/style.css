@@ -267,12 +267,15 @@ h1 {
     text-align: center;
 }
 
-p {
+.bio-text {
+    display: none;
     font-size: 1rem;
     width: 250px;
 }
 
 img {
+    border-radius: 50%;
+    cursor: pointer;
     height: 250px;
     width: 250px;
 }
