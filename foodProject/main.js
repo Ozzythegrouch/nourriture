@@ -13,6 +13,9 @@ const foodTitle = document.querySelector(".food-title")
 const foodResult = document.querySelector(".food-result")
 const foodItem = document.querySelector(".food-item")
 const foodButton = document.querySelector('.food');
+const foodRandomButton = document.querySelector('.foodRandom')
+const ingredient = document.querySelector('#ingredients')
+// const ingredient = document.getElementById('ingredient')
 
 function contentFade() {
     setTimeout(()=>{
@@ -123,29 +126,64 @@ function showSuggestions(list){
 
 
 
-const getFood = async () => {
-    const apiData = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=9f84e0adf95c447bac51d4eef9d24191`)
-    const jsonData = await apiData.json()
-    const foodResult = jsonData.recipes
 
-foodItem.innerText = ''
+const getFood = async () => {
+    const ingredientOne = ingredient.value
+    console.log(ingredientOne)
+    if(!ingredientOne) { 
+        ingredient.setCustomValidity;
+        return
+    } 
+    const apiData = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientOne}&number=3&apiKey=9f84e0adf95c447bac51d4eef9d24191`)
+    const jsonData = await apiData.json()
+    const foodResult = jsonData
+    
+    foodItem.innerText = ''
+
 
 for (let recipe of foodResult) {
-
-    const foodPlateTitle = recipe.title
-    
-    for(let ingredients of recipe){
-        
-
         const recipeInfo = document.createElement('div')
         recipeInfo.className = 'recipe-container'
         recipeInfo.innerHTML = 
-        `<div>${foodPlateTitle}</div>
-         <img>${foodImage}<img>   
+        `<div>${recipe.title}</div>
+         <img src="${recipe.image}"><img>   
         `
         foodItem.append(recipeInfo)
-    }
-}
+}   
 }
 
+const getRandomFood = async () => {
+    const apiData = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=9f84e0adf95c447bac51d4eef9d24191`)
+    const jsonData = await apiData.json()
+    const foodResult = jsonData.recipes
+    console.log(foodResult)
+
+    foodItem.innerText = ''
+
+    // const foodIngredients = recipe.extendedIngredients
+    const foodRecipeTitle = foodResult[0].title
+    const foodRecipeImage = foodResult[0].image
+
+    const recipeInfo = document.createElement('div')
+    recipeInfo.className = 'recipe-container'
+    recipeInfo.innerHTML = 
+    `<h1>${foodRecipeTitle}</h1>
+    <img src = "${foodRecipeImage}"></img>
+    `
+    foodItem.append(recipeInfo)
+    
+    // for(let ingredient of foodIngredients){
+    //     const recipeInfo = document.createElement('div')
+    //     recipeInfo.className = 'recipe-container'
+    //     recipeInfo.innerHTML = 
+    //     `<h1>${ingredient.aisle}</h1>
+    //     `
+    //     foodItem.append(recipeInfo)
+    // }
+}
+
+
 foodButton.addEventListener('click', getFood)
+foodRandomButton.addEventListener('click',getRandomFood)
+
+
