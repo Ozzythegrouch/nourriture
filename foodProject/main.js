@@ -12,9 +12,11 @@ const container = document.querySelector(".container")
 const foodTitle = document.querySelector(".food-title")
 const foodResult = document.querySelector(".food-result")
 const foodItem = document.querySelector(".food-item")
-const foodButton = document.querySelector('.food');
-const foodRandomButton = document.querySelector('.foodRandom')
+const foodButton = document.querySelector('.food-ingredient');
+const foodRandomButton = document.querySelector('.food-random')
+const foodJokeButton = document.querySelector('food-joke')
 const ingredient = document.querySelector('#ingredients')
+const allFoodSearchButton = document.querySelector('food-search')
 // const ingredient = document.getElementById('ingredient')
 
 function contentFade() {
@@ -127,6 +129,25 @@ function showSuggestions(list){
 
 
 
+const getComplexFood = async () => {
+    const searchParam = ingredient.value
+    const apiData = await fetch('https://api.spoonacular.com/recipes/complexSearch?cuisine=${searchParam}?apiKey=9f84e0adf95c447bac51d4eef9d24191')
+    const jsonData = await apiData.json()
+    const complexResult = jsonData.results
+
+    foodItem.innerText = ''
+
+    for(let comRes of complexResult) {
+        const comResInfo = document.createElement('div')
+        comResInfo.className = 'recipe-container'
+        comResInfo = inner.innerHTML = 
+        `<div>${comRes.title}</div>`
+    }
+
+    foodItem.append(comResInfo)
+
+}
+
 const getFood = async () => {
     const ingredientOne = ingredient.value
     console.log(ingredientOne)
@@ -156,19 +177,24 @@ const getRandomFood = async () => {
     const apiData = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=9f84e0adf95c447bac51d4eef9d24191`)
     const jsonData = await apiData.json()
     const foodResult = jsonData.recipes
-    console.log(foodResult)
 
     foodItem.innerText = ''
 
     // const foodIngredients = recipe.extendedIngredients
     const foodRecipeTitle = foodResult[0].title
     const foodRecipeImage = foodResult[0].image
+    const foodServings = foodResult[0].servings
+    const foodReady = foodResult[0].readyInMinutes
 
     const recipeInfo = document.createElement('div')
-    recipeInfo.className = 'recipe-container'
+    recipeInfo.className = 'random-container'
     recipeInfo.innerHTML = 
     `<h1>${foodRecipeTitle}</h1>
     <img src = "${foodRecipeImage}"></img>
+    <h6>"${foodServings} servings"</h6>
+    <h6>"${foodReady} minutes to be ready"</h6
+
+
     `
     foodItem.append(recipeInfo)
     
@@ -182,8 +208,26 @@ const getRandomFood = async () => {
     // }
 }
 
+const getFoodJoke = async () => {
+    const apiData = await fetch (`https://api.spoonacular.com/food/jokes/random?apiKey=9f84e0adf95c447bac51d4eef9d24191`)
+    const jsonData = await apiData.json()
+    const foodJoke = jsonData.text
 
-foodButton.addEventListener('click', getFood)
+    foodItem.innerText = ''
+
+    
+    const jokeInfo = document.createElement('div')
+    jokeInfo.className = 'joke-container'
+    jokeInfo.innerHTML =
+    `<p>${foodJoke}</p>
+    `
+
+    foodItem.append(jokeInfo)
+
+}
+
+
+foodButton.addEventListener('click',getFood)
 foodRandomButton.addEventListener('click',getRandomFood)
-
-
+foodJokeButton.addEventListener('click',getFoodJoke)
+allFoodSearchButton.addEventListener('click',getComplexFood)

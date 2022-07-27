@@ -53,10 +53,23 @@
   <div class="container">
     <h1 class="food-title">Food</h1>
     <form>
-      <input type="text" id="ingredients" placeholder="Search for food" />
+      <label for="carb" class="carb">Carbs</label>
+      <input type="text" id="carb" class="checkbox" />
+      <label>Low Carb Option</label>
+      <div class="allergy-container">
+        <label for="allergies" class="allergies">Allergies</label>
+        <input type="text" id="allergies" class="checkbox" />
+      </div>  
+      </form>
+      <form>
+        <input type="text" id="ingredients" placeholder="Search for food" />
+      </form>
+      <input type="submit" value="search all the food" />
     </form>
-    <button class="food">Food</button>
-    <button class="foodRandom">Random Recipe</button>
+    <button class="food-search">Search all the Food</button>
+    <button class="food-ingredient">Recipe By Ingredients</button>
+    <button class="food-random">Random Recipe</button>
+    <button class="food-joke">Food Joke</button>
     <div class="food-result">
       <div class="food-item">
 
