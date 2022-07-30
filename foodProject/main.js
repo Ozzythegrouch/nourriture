@@ -7,6 +7,10 @@ const splashScreen = document.querySelector('.splash-screen')
 const messageFade = document.querySelector('#messageFade')
 const nameComp = document.querySelector('.nameComponent')
 
+// Ron
+const bios = document.querySelectorAll('.bio-text'),
+bio = document.querySelector('#bio');
+
 // Oscar
 const container = document.querySelector(".container")
 const foodTitle = document.querySelector(".food-title")
@@ -233,3 +237,11 @@ foodButton.addEventListener('click',getFood)
 foodRandomButton.addEventListener('click',getRandomFood)
 foodJokeButton.addEventListener('click',getFoodJoke)
 allFoodSearchButton.addEventListener('click',getComplexFood)
+
+
+bio.addEventListener('click', (e) => {
+    bios.forEach(bio => bio.style.display = 'none')
+    const el = e.target.parentElement;
+    const bioText = el.querySelector('.bio-text')
+    bioText.style.display = 'block';
+});
