@@ -53,19 +53,37 @@
   <div class="container">
     <h1 class="food-title">Food</h1>
     <form>
-      <label for="carb" class="carb">Carbs</label>
-      <input type="text" id="carb" class="checkbox" />
-      <label>Low Carb Option</label>
-      <div class="allergy-container">
-        <label for="allergies" class="allergies">Allergies</label>
-        <input type="text" id="allergies" class="checkbox" />
+      <div id="ingredient">Ingredient
+        <form>
+          <input type="text" id="ingredients" placeholder="ex: apple" />
+        </form>
+      </div>
+      <div id="live-search-cuisine">Cuisine
+        <form>
+          <input type="text" id="cuisine" placeholder="type of food?" />
+          <ul id="cuisine-list"></ul>
+        </form>
       </div>  
-      </form>
-      <form>
-        <input type="text" id="ingredients" placeholder="Search for food" />
-      </form>
-      <input type="submit" value="search all the food" />
+      <div id="allergies">Allergies
+        <label for="Dairy"><input type="checkbox" value="Dairy" id="Dairy">Dairy</label>
+        <label for="Egg"><input type="checkbox" value="Egg" id="Egg">Egg</label>
+        <label for="Gluten"><input type="checkbox" value="Gluten" id="Gluten">Gluten</label>
+        <label for="Grain"><input type="checkbox" value="Grain" id="Grain">Grain</label>
+        <label for="Peanut"><input type="checkbox" value="Peanut" id="Peanut">Peanut</label>
+        <label for="Seafood"><input type="checkbox" value="Seafood" id="Seafood">Seafood</label>
+        <label for="Sesame"><input type="checkbox" value="Sesame" id="Sesame">Sesame</label>
+        <label for="Shellfish"><input type="checkbox" value="Shellfish" id="Shellfish">Shellfish</label>
+        <label for="Soy"><input type="checkbox" value="Soy" id="Soy">Soy</label>
+        <label for="Sulfite"><input type="checkbox" value="Sulfite" id="Sulfite">Sulfite</label>
+        <label for="Tree Nut"><input type="checkbox" value="" idTree Nut="Tree Nut">Tree Nut</label>
+        <label for="Wheat"><input type="checkbox" value="Wheat" id="Wheat">Wheat</label>
+      </div>
+      <div id="carbs">Carbs
+        <label for="low-carb"><input type="checkbox" value="low-carb" id="low-carb">Low Carb</label>
+      </div>  
+      <button type = "submit">Submit to Search All Food</button>
     </form>
+    
     <button class="food-search">Search all the Food</button>
     <button class="food-ingredient">Recipe By Ingredients</button>
     <button class="food-random">Random Recipe</button>
@@ -76,6 +94,7 @@
       </div>
     </div>
   </div>
+  <script src="./cuisine.js" type="text/javascript"></script>
   <script src="./main.js" type="text/javascript"></script>
 </body>
 </html>

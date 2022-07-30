@@ -17,6 +17,8 @@ const foodRandomButton = document.querySelector('.food-random')
 const foodJokeButton = document.querySelector('food-joke')
 const ingredient = document.querySelector('#ingredients')
 const allFoodSearchButton = document.querySelector('food-search')
+const cuisineList = document.getElementById('cuisine-list')
+const cuisineSearch = document.getElementById('cuisine')
 // const ingredient = document.getElementById('ingredient')
 
 function contentFade() {
