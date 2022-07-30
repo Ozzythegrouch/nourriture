@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 const userInput = document.querySelector('.userInput');
 const message = document.querySelector('.message');
@@ -7,6 +6,10 @@ const content = document.querySelector('#contentContainer')
 const splashScreen = document.querySelector('.splash-screen')
 const messageFade = document.querySelector('#messageFade')
 const nameComp = document.querySelector('.nameComponent')
+
+// Ron
+const bios = document.querySelectorAll('.bio-text'),
+bio = document.querySelector('#bio');
 
 // Oscar
 const container = document.querySelector(".container")
@@ -234,9 +237,7 @@ foodButton.addEventListener('click',getFood)
 foodRandomButton.addEventListener('click',getRandomFood)
 foodJokeButton.addEventListener('click',getFoodJoke)
 allFoodSearchButton.addEventListener('click',getComplexFood)
-=======
-const bios = document.querySelectorAll('.bio-text'),
-bio = document.querySelector('#bio');
+
 
 bio.addEventListener('click', (e) => {
     bios.forEach(bio => bio.style.display = 'none')
@@ -244,4 +245,3 @@ bio.addEventListener('click', (e) => {
     const bioText = el.querySelector('.bio-text')
     bioText.style.display = 'block';
 });
->>>>>>> resolve merge conflict pt 3
