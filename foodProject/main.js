@@ -6,6 +6,9 @@ const content = document.querySelector('#contentContainer')
 const splashScreen = document.querySelector('.splash-screen')
 const messageFade = document.querySelector('#messageFade')
 const nameComp = document.querySelector('.nameComponent')
+const burger = document.querySelector(".fa-bars");
+const links = document.querySelector(".links");
+
 
 // Ron
 const bios = document.querySelectorAll('.bio-text'),
@@ -233,13 +236,29 @@ const getFoodJoke = async () => {
 
 foodButton.addEventListener('click',getFood)
 foodRandomButton.addEventListener('click',getRandomFood)
-foodJokeButton.addEventListener('click',getFoodJoke)
-allFoodSearchButton.addEventListener('click',getComplexFood)
+// foodJokeButton.addEventListener('click',getFoodJoke)
+// allFoodSearchButton.addEventListener('click',getComplexFood)
 
 
-bio.addEventListener('click', (e) => {
-    bios.forEach(bio => bio.style.display = 'none')
-    const el = e.target.parentElement;
-    const bioText = el.querySelector('.bio-text')
-    bioText.style.display = 'block';
+// bio.addEventListener('click', (e) => {
+//     bios.forEach(bio => bio.style.display = 'none')
+//     const el = e.target.parentElement;
+//     const bioText = el.querySelector('.bio-text')
+//     bioText.style.display = 'block';
+// });
+
+burger.addEventListener("click", () => {
+  burger.classList.toggle("fa-times");
+  links.classList.toggle("links");
+  links.classList.toggle("links-active");
 });
+
+// "links" toggle removes link class when we click on menu
+// "links-active" toggle when clicked the navigation menu appears 
+// "fa-times" toggle closes with an x on click 
+
+// const nourish = document.querySelector('.seal');
+
+// setTimeout(function() {
+//     nourish.innerText = `Nourish yourself!`
+// }, 3000); 
