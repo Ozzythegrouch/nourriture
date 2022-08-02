@@ -35,8 +35,6 @@ function contentFade() {
     }, 5000)
 }
 
-
-
 myButton.onclick = function() {
     messageFade.classList.add('messageFade')
     nameComp.remove('nameComponent')
