@@ -236,16 +236,16 @@ const getFoodJoke = async () => {
 
 foodButton.addEventListener('click',getFood)
 foodRandomButton.addEventListener('click',getRandomFood)
-foodJokeButton.addEventListener('click',getFoodJoke)
-allFoodSearchButton.addEventListener('click',getComplexFood)
+// foodJokeButton.addEventListener('click',getFoodJoke)
+// allFoodSearchButton.addEventListener('click',getComplexFood)
 
 
-bio.addEventListener('click', (e) => {
-    bios.forEach(bio => bio.style.display = 'none')
-    const el = e.target.parentElement;
-    const bioText = el.querySelector('.bio-text')
-    bioText.style.display = 'block';
-});
+// bio.addEventListener('click', (e) => {
+//     bios.forEach(bio => bio.style.display = 'none')
+//     const el = e.target.parentElement;
+//     const bioText = el.querySelector('.bio-text')
+//     bioText.style.display = 'block';
+// });
 
 burger.addEventListener("click", () => {
   burger.classList.toggle("fa-times");

@@ -53,7 +53,7 @@ body {
   
   .navbar {
     width: 100%;
-    box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+    box-shadow: 0 1px 4px rgb(146, 161, 176, .15);
   }
   
   .nav-container {
@@ -93,7 +93,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Old Standard TT', serif;
+  font-family: 'Old Standard TT', serif;
 }
 header{
   background-color:#14274e;
