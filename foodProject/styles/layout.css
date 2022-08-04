@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 25px;
+}
+
+.y-wrap{
+  margin: 0 auto;
+  width: 90%;
+}
+
+.y-vcenter{
+  display: flex;
+  align-items: center;
+}
+
+.wrapper{
+  max-width: 450px;
+  margin: 150px auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 25px;
+}
