@@ -9,8 +9,6 @@ const burger = document.querySelector(".fa-bars");
 const links = document.querySelector(".links");
 
 const introImage = document.querySelector('.splash-screen')
-const burger = document.querySelector(".fa-bars");
-const links = document.querySelector(".links");
 
 
 // Ron
