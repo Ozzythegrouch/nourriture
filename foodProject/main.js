@@ -18,11 +18,17 @@ const foodResult = document.querySelector(".food-result")
 const foodItem = document.querySelector(".food-item")
 const foodButton = document.querySelector('.food-ingredient');
 const foodRandomButton = document.querySelector('.food-random')
-const foodJokeButton = document.querySelector('food-joke')
+const foodJokeButton = document.querySelector('.food-joke')
 const ingredient = document.querySelector('#ingredients')
-const allFoodSearchButton = document.querySelector('food-search')
+const allFoodSearchButton = document.querySelector('.food-search')
 const cuisineList = document.getElementById('cuisine-list')
 const cuisineSearch = document.getElementById('cuisine')
+const dietaryChoice = document.getElementById('dietary-choices')
+const allergiesChoice = document.getElementById('allergies')
+const carbsChoice = document.getElementById('carbs')
+const allottedTime = document.getElementById('allotted-time')
+const recipeQuantity = document.getElementById('recipe-quantity')
+const foodForm = document.querySelector('.food-form')
 // const ingredient = document.getElementById('ingredient')
 
 function contentFade() {
@@ -31,8 +37,6 @@ function contentFade() {
         content.classList.add('show')
     }, 5000)
 }
-
-
 
 myButton.onclick = function() {
     messageFade.classList.add('messageFade')
@@ -130,54 +134,64 @@ function showSuggestions(list){
     suggBox.innerHTML = listData;
 }
 
+const handleSubmit = e => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const stringified = stringifyFormData(data);
+    console.log(stringified);
+    const userInput = JSON.parse(stringified)
+    getComplexFood(userInput)
+  };
+  
+  foodForm.addEventListener('submit', handleSubmit);
 
+function stringifyFormData(fd) {
+    const data = {};
+    for (let key of fd.keys()) {
+      if (data[key]) {
+        // if the key already exists, we need an array of multiple values
+        data[key] = fd.getAll(key);
+      } else {
+        data[key] = fd.get(key);
+      }
+    }
+    return JSON.stringify(data, null, 4);
+  }
 
-
-
-
-const getComplexFood = async () => {
-    const searchParam = ingredient.value
-    const apiData = await fetch('https://api.spoonacular.com/recipes/complexSearch?cuisine=${searchParam}?apiKey=9f84e0adf95c447bac51d4eef9d24191')
+const getComplexFood = async (formData) => {
+    
+    const ingredients = formData.ingredients
+    const cuisine = formData.cuisine
+    const dietaryChoice = formData.dietaryChoices
+    const intolerances = formData.allergies
+    const lowCarb = formData.lowCarb
+    const allottedTime = formData.allottedTime
+    const recipeQuantity = formData.recipeQuantity
+    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?${ingredients?`query=${ingredients}&`:''}${cuisine?`cuisine=${cuisine}&`:''}${dietaryChoice?`diet=${dietaryChoice}&`:''}${intolerances?`intolerances=${intolerances}&`:''}addRecipeInformation=true&addRecipeNutrition=true${lowCarb?"&maxCarbs=10":''}${allottedTime?`&maxReadyTime=${allottedTime}`:''}${recipeQuantity?`&number=${recipeQuantity}`:''}&apiKey=9f84e0adf95c447bac51d4eef9d24191`
+  
+    const apiData = await fetch(apiUrl)
     const jsonData = await apiData.json()
     const complexResult = jsonData.results
 
-    foodItem.innerText = ''
+    // foodItem.innerText = ''
 
-    for(let comRes of complexResult) {
-        const comResInfo = document.createElement('div')
-        comResInfo.className = 'recipe-container'
-        comResInfo = inner.innerHTML = 
-        `<div>${comRes.title}</div>`
-    }
+    // const nutrition = complexResult.nutrition
+    // const cookTime = complexResult.readyInMinutes
 
-    foodItem.append(comResInfo)
+    // for(let comRes of complexResult) {
+    //     const comResInfo = document.createElement('div')
+    //     comResInfo.className = 'recipe-container'
+    //     comResInfo = inner.innerHTML = 
+    //     `<div>${comRes.title}</div>
+    //     <img>${comRes.image}</div>
+    //     <div>${nutrition}</div>
+    //     <div>${cookTime}</div>
+    //     `
+    // }
 
+    // foodItem.append(comResInfo)
 }
 
-const getFood = async () => {
-    const ingredientOne = ingredient.value
-    console.log(ingredientOne)
-    if(!ingredientOne) { 
-        ingredient.setCustomValidity;
-        return
-    } 
-    const apiData = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientOne}&number=3&apiKey=9f84e0adf95c447bac51d4eef9d24191`)
-    const jsonData = await apiData.json()
-    const foodResult = jsonData
-    
-    foodItem.innerText = ''
-
-
-for (let recipe of foodResult) {
-        const recipeInfo = document.createElement('div')
-        recipeInfo.className = 'recipe-container'
-        recipeInfo.innerHTML = 
-        `<div>${recipe.title}</div>
-         <img src="${recipe.image}"><img>   
-        `
-        foodItem.append(recipeInfo)
-}   
-}
 
 const getRandomFood = async () => {
     const apiData = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=9f84e0adf95c447bac51d4eef9d24191`)
@@ -233,15 +247,15 @@ const getFoodJoke = async () => {
 }
 
 
-foodButton.addEventListener('click',getFood)
+
 foodRandomButton.addEventListener('click',getRandomFood)
 foodJokeButton.addEventListener('click',getFoodJoke)
-allFoodSearchButton.addEventListener('click',getComplexFood)
+// allFoodSearchButton.addEventListener('click',getComplexFood)
 
 
-bio.addEventListener('click', (e) => {
-    bios.forEach(bio => bio.style.display = 'none')
-    const el = e.target.parentElement;
-    const bioText = el.querySelector('.bio-text')
-    bioText.style.display = 'block';
-});
+// bio.addEventListener('click', (e) => {
+//     bios.forEach(bio => bio.style.display = 'none')
+//     const el = e.target.parentElement;
+//     const bioText = el.querySelector('.bio-text')
+//     bioText.style.display = 'block';
+// });

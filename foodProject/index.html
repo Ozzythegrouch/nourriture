@@ -52,39 +52,54 @@
         <h1 class="message"> </h1>
   <div class="container">
     <h1 class="food-title">Food</h1>
-    <form>
-      <div id="ingredient">Ingredient
-        <form>
-          <input type="text" id="ingredients" placeholder="ex: apple" />
-        </form>
+    <form class = "food-form">
+      <div id="ingredient"><h3>Ingredient</h3>
+          <input type="text" id="ingredients" name="ingredients" placeholder="ex: apple" /> 
       </div>
-      <div id="live-search-cuisine">Cuisine
-        <form>
-          <input type="text" id="cuisine" placeholder="type of food?" />
+      <div id="live-search-cuisine"><h3>Cuisine</h3>
+          <input type="text" id="cuisine" name="cuisine" placeholder="type of food?" />
           <ul id="cuisine-list"></ul>
-        </form>
-      </div>  
-      <div id="allergies">Allergies
-        <label for="Dairy"><input type="checkbox" value="Dairy" id="Dairy">Dairy</label>
-        <label for="Egg"><input type="checkbox" value="Egg" id="Egg">Egg</label>
-        <label for="Gluten"><input type="checkbox" value="Gluten" id="Gluten">Gluten</label>
-        <label for="Grain"><input type="checkbox" value="Grain" id="Grain">Grain</label>
-        <label for="Peanut"><input type="checkbox" value="Peanut" id="Peanut">Peanut</label>
-        <label for="Seafood"><input type="checkbox" value="Seafood" id="Seafood">Seafood</label>
-        <label for="Sesame"><input type="checkbox" value="Sesame" id="Sesame">Sesame</label>
-        <label for="Shellfish"><input type="checkbox" value="Shellfish" id="Shellfish">Shellfish</label>
-        <label for="Soy"><input type="checkbox" value="Soy" id="Soy">Soy</label>
-        <label for="Sulfite"><input type="checkbox" value="Sulfite" id="Sulfite">Sulfite</label>
-        <label for="Tree Nut"><input type="checkbox" value="" idTree Nut="Tree Nut">Tree Nut</label>
-        <label for="Wheat"><input type="checkbox" value="Wheat" id="Wheat">Wheat</label>
       </div>
-      <div id="carbs">Carbs
-        <label for="low-carb"><input type="checkbox" value="low-carb" id="low-carb">Low Carb</label>
+      <div id="dietary-choices"><h3>Dietary Choices</h3>
+          <label for="gluten-free"><input type="checkbox" value="gluten-free" name="dietaryChoices" id="gluten-free">Gluten Free</label>
+          <label for="ketogenic"><input type="checkbox" value="ketogenic" name="dietaryChoices" id="ketogenic">Ketogenic</label>
+          <label for="vegetarian"><input type="checkbox" value="vegetarian" name="dietaryChoices" id="vegetarian">Vegetarian</label>
+          <label for="lacto-vegetarian"><input type="checkbox" value="lacto-vegetarian" name="dietaryChoices" id="lacto-vegetarian">Lacto-Vegetarian</label>
+          <label for="ovo-vegetarian"><input type="checkbox" value="ovo-vegetarian" name="dietaryChoices" id="ovo-vegetarian">Ovo-Vegetarian</label>
+          <label for="vegan"><input type="checkbox" value="vegan" name="dietaryChoices" id="vegan">Vegan</label>
+          <label for="pescatarian"><input type="checkbox" value="pescatarian" name="dietaryChoices" id="pescatarian">Pescatarian</label>
+          <label for="paleo"><input type="checkbox" value="paleo" name="dietaryChoices" id="paleo">Paleo</label>
+          <label for="primal"><input type="checkbox" value="primal" name="dietaryChoices" id="primal">Primal</label>
+          <label for="low-fodmap"><input type="checkbox" value="low-fodmap" name="dietaryChoices" id="low-fodmap">Low FODmap</label>
+          <label for="whole30"><input type="checkbox" value="whole30" name="dietaryChoices" id="whole30">Whole 30</label>
       </div>  
-      <button type = "submit">Submit to Search All Food</button>
+      <div id="allergies"><h3>Allergies</h3>
+        <label for="Dairy"><input type="checkbox" value="Dairy" name="allergies" id="Dairy">Dairy</label>
+        <label for="Egg"><input type="checkbox" value="Egg" name="allergies" id="Egg">Egg</label>
+        <label for="Gluten"><input type="checkbox" value="Gluten" name="allergies" id="Gluten">Gluten</label>
+        <label for="Grain"><input type="checkbox" value="Grain" name="allergies" id="Grain">Grain</label>
+        <label for="Peanut"><input type="checkbox" value="Peanut" name="allergies" id="Peanut">Peanut</label>
+        <label for="Seafood"><input type="checkbox" value="Seafood" name="allergies" id="Seafood">Seafood</label>
+        <label for="Sesame"><input type="checkbox" value="Sesame" name="allergies" id="Sesame">Sesame</label>
+        <label for="Shellfish"><input type="checkbox" value="Shellfish" name="allergies" id="Shellfish">Shellfish</label>
+        <label for="Soy"><input type="checkbox" value="Soy" name="allergies" id="Soy">Soy</label>
+        <label for="Sulfite"><input type="checkbox" value="Sulfite" name="allergies" id="Sulfite">Sulfite</label>
+        <label for="Tree Nut"><input type="checkbox" value="tree-nut" name="allergies" idTree Nut="Tree Nut">Tree Nut</label>
+        <label for="Wheat"><input type="checkbox" value="Wheat" name="allergies" id="Wheat">Wheat</label>
+      </div>
+      <div id="carbs"><h3>Carbs</h3>
+        <label for="low-carb"><input type="checkbox" value="true" id="low-carb" name= "lowCarb">Low Carb</label>
+      </div>  
+      <div id="time"><h3>Time</h3>
+        <label for="allotted-time"><input type="num" id="allotted-time" name="allottedTime" placeholder="cook time?"></label>
+      </div>
+      <div id="recipe-quantity"><h3>How many recipes?</h3>
+          <input type="num" id="recipe-quantity" name="recipeQuantity" placeholder="ex: 3" />
+      </div>    
+      <button type="submit" class="food-search">Search all the Food</button>
     </form>
     
-    <button class="food-search">Search all the Food</button>
+    
     <button class="food-ingredient">Recipe By Ingredients</button>
     <button class="food-random">Random Recipe</button>
     <button class="food-joke">Food Joke</button>
