@@ -11,10 +11,6 @@ const links = document.querySelector(".links");
 const introImage = document.querySelector('.splash-screen')
 
 
-// Ron
-const bios = document.querySelectorAll('.bio-text'),
-bio = document.querySelector('#bio');
-
 // Oscar
 const container = document.querySelector(".container")
 const foodTitle = document.querySelector(".food-title")
@@ -200,10 +196,10 @@ const getRandomFood = async () => {
     `<h1>${foodRecipeTitle}</h1>
     <img src = "${foodRecipeImage}"></img>
     <h6>"${foodServings} servings"</h6>
-    <h6>"${foodReady} minutes to be ready"</h6
+    <h6>"${foodReady} minutes to be ready"</h6>`
 
 
-    `
+
     foodItem.append(recipeInfo)
     
     // for(let ingredient of foodIngredients){
@@ -231,7 +227,6 @@ const getFoodJoke = async () => {
     `
 
     foodItem.append(jokeInfo)
-
 }
 
 
