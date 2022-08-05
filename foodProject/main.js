@@ -3,11 +3,12 @@ const userInput = document.querySelector('.userInput');
 const message = document.querySelector('.message');
 const myButton = document.querySelector('.myButton');
 const content = document.querySelector('#contentContainer')
-const splashScreen = document.querySelector('.splash-screen')
 const messageFade = document.querySelector('#messageFade')
 const nameComp = document.querySelector('.nameComponent')
 const burger = document.querySelector(".fa-bars");
 const links = document.querySelector(".links");
+
+const introImage = document.querySelector('.splash-screen')
 
 
 // Ron
@@ -38,6 +39,7 @@ function contentFade() {
 myButton.onclick = function() {
     messageFade.classList.add('messageFade')
     nameComp.remove('nameComponent')
+    introImage.classList.add('faded')
     message.innerHTML= `Welcome, ${userInput.value}! Let's get cooking...`
     contentFade()
 }
@@ -80,7 +82,6 @@ const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector(".icon"); 
-
 
 inputBox.addEventListener('keyup', e => {
     let userData = e.target.value;
