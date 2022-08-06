@@ -3,13 +3,13 @@ const userInput = document.querySelector('.userInput');
 const message = document.querySelector('.message');
 const myButton = document.querySelector('.myButton');
 const content = document.querySelector('#contentContainer')
-const splashScreen = document.querySelector('.splash-screen')
 const messageFade = document.querySelector('#messageFade')
 const nameComp = document.querySelector('.nameComponent')
+const burger = document.querySelector(".fa-bars");
+const links = document.querySelector(".links");
 
-// Ron
-const bios = document.querySelectorAll('.bio-text'),
-bio = document.querySelector('#bio');
+const introImage = document.querySelector('.splash-screen')
+
 
 // Oscar
 const container = document.querySelector(".container")
@@ -41,6 +41,7 @@ function contentFade() {
 myButton.onclick = function() {
     messageFade.classList.add('messageFade')
     nameComp.remove('nameComponent')
+    introImage.classList.add('faded')
     message.innerHTML= `Welcome, ${userInput.value}! Let's get cooking...`
     contentFade()
 }
@@ -79,11 +80,10 @@ const itemsContent = [
     'Vietnamese'
 ];
 
-const searchWrapper = document.querySelector(".search-input");
+const searchWrapper = document.querySelector(".search-input");  // TODO this is null
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector(".icon"); 
-
 
 inputBox.addEventListener('keyup', e => {
     let userData = e.target.value;
@@ -212,10 +212,10 @@ const getRandomFood = async () => {
     `<h1>${foodRecipeTitle}</h1>
     <img src = "${foodRecipeImage}"></img>
     <h6>"${foodServings} servings"</h6>
-    <h6>"${foodReady} minutes to be ready"</h6
+    <h6>"${foodReady} minutes to be ready"</h6>`
 
 
-    `
+
     foodItem.append(recipeInfo)
     
     // for(let ingredient of foodIngredients){
@@ -243,7 +243,6 @@ const getFoodJoke = async () => {
     `
 
     foodItem.append(jokeInfo)
-
 }
 
 
@@ -252,6 +251,22 @@ foodRandomButton.addEventListener('click',getRandomFood)
 foodJokeButton.addEventListener('click',getFoodJoke)
 // allFoodSearchButton.addEventListener('click',getComplexFood)
 
+// bio.addEventListener('click', (e) => {
+//     bios.forEach(bio => bio.style.display = 'none')
+//     const el = e.target.parentElement;
+//     const bioText = el.querySelector('.bio-text')
+//     bioText.style.display = 'block';
+// });
+
+burger.addEventListener("click", () => {
+  burger.classList.toggle("fa-times");
+  links.classList.toggle("links");
+  links.classList.toggle("links-active");
+});
+
+// "links" toggle removes link class when we click on menu
+// "links-active" toggle when clicked the navigation menu appears 
+// "fa-times" toggle closes with an x on click 
 
 // bio.addEventListener('click', (e) => {
 //     bios.forEach(bio => bio.style.display = 'none')

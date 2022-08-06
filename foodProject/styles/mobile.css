@@ -1,0 +1,57 @@
+@media (max-width: 768px) {
+  .burger {
+    height: 20px;
+    position: relative;
+    width: 26px;
+    z-index: 20;
+    display: block;
+    font-size: 1.5rem;
+    color: white; 
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  /*/***********/ 
+  .fa {
+    transition: 0.3s ease;
+  }
+  /* menu should be closed  */
+    .links{
+    display: none;
+  }
+
+  /* when burger menu is open display the following  */
+  .links-active {  
+    position: absolute;
+    padding: 10px; 
+    text-align: right;
+    top: 103px;
+    right: 0;
+    width: 60%;
+    height: calc(100vh - 60px); 
+    background-color: white;
+    color: gray;
+    font-size: 1.1rem;
+    transition: all 1s ease-out;
+  }
+.links-active::before{
+  content:"";
+  height:200%;
+  top:50%;
+  width:100%;
+  position: absolute;
+  background-color: inherit;
+  /* background-color: cornsilk; */
+  right: 0;
+  z-index: -1;
+}
+  .links-active li {
+    margin: 14px 0;
+    cursor: pointer;
+    position: relative;
+    
+  }
+  
+  .nav-container input[type="checkbox"]:checked ~ .logo{
+    display: none;
+  }
+}
