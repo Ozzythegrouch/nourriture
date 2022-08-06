@@ -105,6 +105,7 @@ list-style: none;
 cursor: pointer;
 position: relative;
 transition: 0.3s ease;
+padding: 20px;
 /* flex-direction: row; */
 }
 .links li::after {

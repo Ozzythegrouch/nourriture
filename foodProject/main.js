@@ -5,7 +5,7 @@ const myButton = document.querySelector('.myButton');
 const content = document.querySelector('#contentContainer')
 const messageFade = document.querySelector('#messageFade')
 const nameComp = document.querySelector('.nameComponent')
-const burger = document.querySelector(".fa-bars");
+// const burger = document.querySelector(".fa-bars");
 const links = document.querySelector(".links");
 
 const introImage = document.querySelector('.splash-screen')
@@ -18,11 +18,17 @@ const foodResult = document.querySelector(".food-result")
 const foodItem = document.querySelector(".food-item")
 const foodButton = document.querySelector('.food-ingredient');
 const foodRandomButton = document.querySelector('.food-random')
-const foodJokeButton = document.querySelector('food-joke')
+const foodJokeButton = document.querySelector('.food-joke')
 const ingredient = document.querySelector('#ingredients')
-const allFoodSearchButton = document.querySelector('food-search')
+const allFoodSearchButton = document.querySelector('.food-search')
 const cuisineList = document.getElementById('cuisine-list')
 const cuisineSearch = document.getElementById('cuisine')
+const dietaryChoice = document.getElementById('dietary-choices')
+const allergiesChoice = document.getElementById('allergies')
+const carbsChoice = document.getElementById('carbs')
+const allottedTime = document.getElementById('allotted-time')
+const recipeQuantity = document.getElementById('recipe-quantity')
+const foodForm = document.querySelector('.food-form')
 // const ingredient = document.getElementById('ingredient')
 
 function contentFade() {
@@ -74,7 +80,7 @@ const itemsContent = [
     'Vietnamese'
 ];
 
-const searchWrapper = document.querySelector(".search-input");
+const searchWrapper = document.querySelector(".search-input");  // TODO this is null
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 const icon = searchWrapper.querySelector(".icon"); 
@@ -128,54 +134,125 @@ function showSuggestions(list){
     suggBox.innerHTML = listData;
 }
 
+const handleSubmit = e => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const stringified = stringifyFormData(data);
+    console.log(stringified);
+    const userInput = JSON.parse(stringified)
+    getComplexFood(userInput)
+  };
+  
+  foodForm.addEventListener('submit', handleSubmit);
 
+function stringifyFormData(fd) {
+    const data = {};
+    for (let key of fd.keys()) {
+      if (data[key]) {
+        // if the key already exists, we need an array of multiple values
+        data[key] = fd.getAll(key);
+      } else {
+        data[key] = fd.get(key);
+      }
+    }
+    return JSON.stringify(data, null, 4);
+  }
 
+const getComplexFood = async (formData) => {
+    
+    const ingredients = formData.ingredients
+    const cuisine = formData.cuisine
+    const dietaryChoice = formData.dietaryChoices
+    const intolerances = formData.allergies
+    const lowCarb = formData.lowCarb
+    const allottedTime = formData.allottedTime
+    const recipeQuantity = formData.recipeQuantity
 
-
-
-const getComplexFood = async () => {
-    const searchParam = ingredient.value
-    const apiData = await fetch('https://api.spoonacular.com/recipes/complexSearch?cuisine=${searchParam}?apiKey=9f84e0adf95c447bac51d4eef9d24191')
+    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?${ingredients?`query=${ingredients}&`:''}${cuisine?`cuisine=${cuisine}&`:''}${dietaryChoice?`diet=${dietaryChoice}&`:''}${intolerances?`intolerances=${intolerances}&`:''}addRecipeInformation=true&addRecipeNutrition=true${lowCarb?"&maxCarbs=10":''}${allottedTime?`&maxReadyTime=${allottedTime}`:''}${recipeQuantity?`&number=${recipeQuantity}`:''}&apiKey=c9f33d7fd7bc4c1485507589b505e59a`
+  
+    const apiData = await fetch(apiUrl)
     const jsonData = await apiData.json()
     const complexResult = jsonData.results
-
+    console.log(complexResult)
     foodItem.innerText = ''
+
+    
 
     for(let comRes of complexResult) {
+        const titDis = comRes.title
+        const imDis = comRes.image
+        const cookTime = comRes.readyInMinutes
+
         const comResInfo = document.createElement('div')
         comResInfo.className = 'recipe-container'
-        comResInfo = inner.innerHTML = 
-        `<div>${comRes.title}</div>`
+        comResInfo.innerHTML = 
+        `<div>${titDis}</div>
+         <img src = "${imDis}"/>
+        
+        <div>${cookTime}</div>
+        `
+        foodItem.append(comResInfo)
     }
+    return JSON.stringify(data, null, 4);
+  }
 
-    foodItem.append(comResInfo)
-
-}
-
-const getFood = async () => {
-    const ingredientOne = ingredient.value
-    console.log(ingredientOne)
-    if(!ingredientOne) { 
-        ingredient.setCustomValidity;
-        return
-    } 
-    const apiData = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientOne}&number=3&apiKey=9f84e0adf95c447bac51d4eef9d24191`)
-    const jsonData = await apiData.json()
-    const foodResult = jsonData
     
-    foodItem.innerText = ''
+    const ingredients = formData.ingredients
+    const cuisine = formData.cuisine
+    const dietaryChoice = formData.dietaryChoices
+    const intolerances = formData.allergies
+    const lowCarb = formData.lowCarb
+    const allottedTime = formData.allottedTime
+    const recipeQuantity = formData.recipeQuantity
+    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?${ingredients?`query=${ingredients}&`:''}${cuisine?`cuisine=${cuisine}&`:''}${dietaryChoice?`diet=${dietaryChoice}&`:''}${intolerances?`intolerances=${intolerances}&`:''}addRecipeInformation=true&addRecipeNutrition=true${lowCarb?"&maxCarbs=10":''}${allottedTime?`&maxReadyTime=${allottedTime}`:''}${recipeQuantity?`&number=${recipeQuantity}`:''}&apiKey=9f84e0adf95c447bac51d4eef9d24191`
+  
+    const apiData = await fetch(apiUrl)
+    const jsonData = await apiData.json()
+    const complexResult = jsonData.results
+    console.log(complexResult)
 
+  
+    for(let recipe of complexResult) {
+        function renderResultStyles () {
+        const resultsContainer = document.getElementsByClassName('food-result')
+        const recipeInfo = document.createElement('section')
 
-for (let recipe of foodResult) {
-        const recipeInfo = document.createElement('div')
         recipeInfo.className = 'recipe-container'
         recipeInfo.innerHTML = 
-        `<div>${recipe.title}</div>
-         <img src="${recipe.image}"><img>   
+        `<div class="resultContainer">
+             <div class="search-result">
+                 <div class="item">
+                 <img src="${recipe.image}">
+                     <div class="flex-container">
+                         <h1 class='title'>${recipe.title}</h1>
+                     </div>
+                 </div>
+             </div>
+         </div>
         `
-        foodItem.append(recipeInfo)
-}   
+        results.innerHTML = resultsHtml;
+        resultsContainer.append(results);
+        renderResultsStyles();
+    }
+    
+
+    // const nutrition = complexResult.nutrition
+    // const cookTime = complexResult.readyInMinutes
+
+    // for(let comRes of complexResult) {
+    //     const comResInfo = document.createElement('div')
+    //     comResInfo.className = 'recipe-container'
+    //     comResInfo = inner.innerHTML = 
+    //     `<div>${comRes.title}</div>
+    //     <img>${comRes.image}</div>
+    //     <div>${nutrition}</div>
+    //     <div>${cookTime}</div>
+    //     `
+    // }
+
+    // foodItem.append(comResInfo)
 }
+
 
 const getRandomFood = async () => {
     const apiData = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=9f84e0adf95c447bac51d4eef9d24191`)
@@ -193,12 +270,18 @@ const getRandomFood = async () => {
     const recipeInfo = document.createElement('div')
     recipeInfo.className = 'random-container'
     recipeInfo.innerHTML = 
-    `<h1>${foodRecipeTitle}</h1>
-    <img src = "${foodRecipeImage}"></img>
-    <h6>"${foodServings} servings"</h6>
-    <h6>"${foodReady} minutes to be ready"</h6>`
-
-
+    `<div class="resultContainer">
+        <div class="search-result">
+            <div class="item">
+                <img src = "${foodRecipeImage}"></img>
+                    <div class="flex-container">
+                        <h1 class= 'title'>${foodRecipeTitle}</h1>
+                        <h6>"${foodServings} servings"</h6>
+                        <h6>"${foodReady} minutes to be ready"</h6>
+                    </div>
+            </div>
+        </div>
+    </div>`
 
     foodItem.append(recipeInfo)
     
@@ -230,11 +313,10 @@ const getFoodJoke = async () => {
 }
 
 
-foodButton.addEventListener('click',getFood)
-foodRandomButton.addEventListener('click',getRandomFood)
-// foodJokeButton.addEventListener('click',getFoodJoke)
-// allFoodSearchButton.addEventListener('click',getComplexFood)
 
+foodRandomButton.addEventListener('click',getRandomFood)
+foodJokeButton.addEventListener('click',getFoodJoke)
+// allFoodSearchButton.addEventListener('click',getComplexFood)
 
 // bio.addEventListener('click', (e) => {
 //     bios.forEach(bio => bio.style.display = 'none')
@@ -243,11 +325,11 @@ foodRandomButton.addEventListener('click',getRandomFood)
 //     bioText.style.display = 'block';
 // });
 
-burger.addEventListener("click", () => {
-  burger.classList.toggle("fa-times");
-  links.classList.toggle("links");
-  links.classList.toggle("links-active");
-});
+// burger.addEventListener("click", () => {
+//   burger.classList.toggle("fa-times");
+//   links.classList.toggle("links");
+//   links.classList.toggle("links-active");
+// });
 
 // "links" toggle removes link class when we click on menu
 // "links-active" toggle when clicked the navigation menu appears 

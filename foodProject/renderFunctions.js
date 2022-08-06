@@ -1,9 +1,3 @@
-//import style sheets
-import './base.css';
-import './desktop.css';
-import './keyframes.css';
-import './layout.css';
-import './mobile.css';
 
 //function to render nav bar on different pages instead of hard coding it
 function renderNav () {
@@ -30,3 +24,38 @@ function renderNav () {
     navContainer.prepend(nav);
 }
 renderNav();
+
+const burger = document.querySelector(".fa-bars");
+burger.addEventListener("click", () => {
+    burger.classList.toggle("fa-times");
+    links.classList.toggle("links");
+    links.classList.toggle("links-active");
+  });
+
+
+// //function to render nav bar on different pages instead of hard coding it
+// function renderResultStyles () {
+//     const resultsContainer = document.getElementsByClassName('food-result')
+//     const results = document.createElement('section');
+//     // const resultHtml = ` 
+//     // <section>   
+//     // <div class="resultContainer">
+//     //     <div class="search-result">
+//     //         <div class="item">
+//     //             <img src=>
+//     //             <div class="flex-container">
+//     //                 <h1 class="title">This is a recipe</h1>
+//     //                 <a href="#" class="button">View recipe</a>
+//     //             </div>
+//     //             <p class="item-data">TEXT</p>
+//     //         </div>
+//     //     </div>
+//     // </div>
+//     // </section>
+//     // `;
+
+//     results.innerHTML = resultsHtml;
+//     resultsContainer.append(results);
+// }
+// renderResultsStyles();
+
