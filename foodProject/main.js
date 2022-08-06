@@ -193,13 +193,30 @@ const getComplexFood = async (formData) => {
         `
         foodItem.append(comResInfo)
     }
+    return JSON.stringify(data, null, 4);
+  }
 
     
-    foodItem.innerText = ''
+    const ingredients = formData.ingredients
+    const cuisine = formData.cuisine
+    const dietaryChoice = formData.dietaryChoices
+    const intolerances = formData.allergies
+    const lowCarb = formData.lowCarb
+    const allottedTime = formData.allottedTime
+    const recipeQuantity = formData.recipeQuantity
+    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?${ingredients?`query=${ingredients}&`:''}${cuisine?`cuisine=${cuisine}&`:''}${dietaryChoice?`diet=${dietaryChoice}&`:''}${intolerances?`intolerances=${intolerances}&`:''}addRecipeInformation=true&addRecipeNutrition=true${lowCarb?"&maxCarbs=10":''}${allottedTime?`&maxReadyTime=${allottedTime}`:''}${recipeQuantity?`&number=${recipeQuantity}`:''}&apiKey=9f84e0adf95c447bac51d4eef9d24191`
+  
+    const apiData = await fetch(apiUrl)
+    const jsonData = await apiData.json()
+    const complexResult = jsonData.results
+    console.log(complexResult)
 
-
-for (let recipe of foodResult) {
+  
+    for(let recipe of complexResult) {
+        function renderResultStyles () {
+        const resultsContainer = document.getElementsByClassName('food-result')
         const recipeInfo = document.createElement('section')
+
         recipeInfo.className = 'recipe-container'
         recipeInfo.innerHTML = 
         `<div class="resultContainer">
@@ -213,8 +230,27 @@ for (let recipe of foodResult) {
              </div>
          </div>
         `
-        foodItem.append(recipeInfo)
-}   
+        results.innerHTML = resultsHtml;
+        resultsContainer.append(results);
+        renderResultsStyles();
+    }
+    
+
+    // const nutrition = complexResult.nutrition
+    // const cookTime = complexResult.readyInMinutes
+
+    // for(let comRes of complexResult) {
+    //     const comResInfo = document.createElement('div')
+    //     comResInfo.className = 'recipe-container'
+    //     comResInfo = inner.innerHTML = 
+    //     `<div>${comRes.title}</div>
+    //     <img>${comRes.image}</div>
+    //     <div>${nutrition}</div>
+    //     <div>${cookTime}</div>
+    //     `
+    // }
+
+    // foodItem.append(comResInfo)
 }
 
 
@@ -234,12 +270,18 @@ const getRandomFood = async () => {
     const recipeInfo = document.createElement('div')
     recipeInfo.className = 'random-container'
     recipeInfo.innerHTML = 
-    `<h1>${foodRecipeTitle}</h1>
-    <img src = "${foodRecipeImage}"></img>
-    <h6>"${foodServings} servings"</h6>
-    <h6>"${foodReady} minutes to be ready"</h6>`
-
-
+    `<div class="resultContainer">
+        <div class="search-result">
+            <div class="item">
+                <img src = "${foodRecipeImage}"></img>
+                    <div class="flex-container">
+                        <h1 class= 'title'>${foodRecipeTitle}</h1>
+                        <h6>"${foodServings} servings"</h6>
+                        <h6>"${foodReady} minutes to be ready"</h6>
+                    </div>
+            </div>
+        </div>
+    </div>`
 
     foodItem.append(recipeInfo)
     
@@ -298,3 +340,4 @@ foodJokeButton.addEventListener('click',getFoodJoke)
 // setTimeout(function() {
 //     nourish.innerText = `Nourish yourself!`
 // }, 3000); 
+}
