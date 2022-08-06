@@ -340,4 +340,3 @@ foodJokeButton.addEventListener('click',getFoodJoke)
 // setTimeout(function() {
 //     nourish.innerText = `Nourish yourself!`
 // }, 3000); 
-}
