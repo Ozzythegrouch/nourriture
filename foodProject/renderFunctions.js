@@ -1,10 +1,3 @@
-//import style sheets
-import './base.css';
-import './desktop.css';
-import './keyframes.css';
-import './layout.css';
-import './mobile.css';
-
 //function to render nav bar on different pages instead of hard coding it
 function renderNav () {
     const navContainer = document.getElementById('y-wrap')
@@ -30,3 +23,11 @@ function renderNav () {
     navContainer.prepend(nav);
 }
 renderNav();
+
+const burger = document.querySelector(".fa-bars");
+burger.addEventListener("click", () => {
+    burger.classList.toggle("fa-times");
+    links.classList.toggle("links");
+    links.classList.toggle("links-active");
+  });
+

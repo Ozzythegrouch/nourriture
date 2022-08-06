@@ -5,7 +5,7 @@ const myButton = document.querySelector('.myButton');
 const content = document.querySelector('#contentContainer')
 const messageFade = document.querySelector('#messageFade')
 const nameComp = document.querySelector('.nameComponent')
-const burger = document.querySelector(".fa-bars");
+// const burger = document.querySelector(".fa-bars");
 const links = document.querySelector(".links");
 
 const introImage = document.querySelector('.splash-screen')
@@ -263,11 +263,11 @@ foodJokeButton.addEventListener('click',getFoodJoke)
 //     bioText.style.display = 'block';
 // });
 
-burger.addEventListener("click", () => {
-  burger.classList.toggle("fa-times");
-  links.classList.toggle("links");
-  links.classList.toggle("links-active");
-});
+// burger.addEventListener("click", () => {
+//   burger.classList.toggle("fa-times");
+//   links.classList.toggle("links");
+//   links.classList.toggle("links-active");
+// });
 
 // "links" toggle removes link class when we click on menu
 // "links-active" toggle when clicked the navigation menu appears 
