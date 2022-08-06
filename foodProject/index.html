@@ -43,6 +43,21 @@
         </div>
         <div id="live-search-cuisine"><h3>Cuisine</h3>
             <input type="text" id="cuisine" name="cuisine" placeholder="type of food?" />
+
+<!-- TODO we need to figure out if we need both `<input />` elements (lines 45 and 51). Both Anna and Oscar have worked here. -->
+            <div class="wrapper">	
+              <div class="search-input">	
+                <a href="" target="_blank" hidden></a>	
+                <input id='search' type="text" placeholder="ex: Italian">	
+                <div class="autocom-box">	
+                  <ul id='items-list'></ul> 	
+                </div>	
+                <div class="icon"><i class="fas fa-search"></i>	
+                </div>	
+              </div>	
+            </div>
+
+
             <ul id="cuisine-list"></ul>
         </div>
         <div id="dietary-choices"><h3>Dietary Choices</h3>
