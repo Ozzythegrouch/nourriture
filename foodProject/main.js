@@ -167,29 +167,34 @@ const getComplexFood = async (formData) => {
     const lowCarb = formData.lowCarb
     const allottedTime = formData.allottedTime
     const recipeQuantity = formData.recipeQuantity
-    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?${ingredients?`query=${ingredients}&`:''}${cuisine?`cuisine=${cuisine}&`:''}${dietaryChoice?`diet=${dietaryChoice}&`:''}${intolerances?`intolerances=${intolerances}&`:''}addRecipeInformation=true&addRecipeNutrition=true${lowCarb?"&maxCarbs=10":''}${allottedTime?`&maxReadyTime=${allottedTime}`:''}${recipeQuantity?`&number=${recipeQuantity}`:''}&apiKey=9f84e0adf95c447bac51d4eef9d24191`
+
+    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?${ingredients?`query=${ingredients}&`:''}${cuisine?`cuisine=${cuisine}&`:''}${dietaryChoice?`diet=${dietaryChoice}&`:''}${intolerances?`intolerances=${intolerances}&`:''}addRecipeInformation=true&addRecipeNutrition=true${lowCarb?"&maxCarbs=10":''}${allottedTime?`&maxReadyTime=${allottedTime}`:''}${recipeQuantity?`&number=${recipeQuantity}`:''}&apiKey=c9f33d7fd7bc4c1485507589b505e59a`
   
     const apiData = await fetch(apiUrl)
     const jsonData = await apiData.json()
     const complexResult = jsonData.results
+    console.log(complexResult)
+    foodItem.innerText = ''
 
-    // foodItem.innerText = ''
+    
 
-    // const nutrition = complexResult.nutrition
-    // const cookTime = complexResult.readyInMinutes
+    for(let comRes of complexResult) {
+        const titDis = comRes.title
+        const imDis = comRes.image
+        const cookTime = comRes.readyInMinutes
 
-    // for(let comRes of complexResult) {
-    //     const comResInfo = document.createElement('div')
-    //     comResInfo.className = 'recipe-container'
-    //     comResInfo = inner.innerHTML = 
-    //     `<div>${comRes.title}</div>
-    //     <img>${comRes.image}</div>
-    //     <div>${nutrition}</div>
-    //     <div>${cookTime}</div>
-    //     `
-    // }
+        const comResInfo = document.createElement('div')
+        comResInfo.className = 'recipe-container'
+        comResInfo.innerHTML = 
+        `<div>${titDis}</div>
+         <img src = "${imDis}"/>
+        
+        <div>${cookTime}</div>
+        `
+        foodItem.append(comResInfo)
+    }
 
-    // foodItem.append(comResInfo)
+    
 }
 
 
