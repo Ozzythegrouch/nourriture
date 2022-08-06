@@ -196,21 +196,6 @@ const getComplexFood = async (formData) => {
     return JSON.stringify(data, null, 4);
   }
 
-    
-    const ingredients = formData.ingredients
-    const cuisine = formData.cuisine
-    const dietaryChoice = formData.dietaryChoices
-    const intolerances = formData.allergies
-    const lowCarb = formData.lowCarb
-    const allottedTime = formData.allottedTime
-    const recipeQuantity = formData.recipeQuantity
-    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?${ingredients?`query=${ingredients}&`:''}${cuisine?`cuisine=${cuisine}&`:''}${dietaryChoice?`diet=${dietaryChoice}&`:''}${intolerances?`intolerances=${intolerances}&`:''}addRecipeInformation=true&addRecipeNutrition=true${lowCarb?"&maxCarbs=10":''}${allottedTime?`&maxReadyTime=${allottedTime}`:''}${recipeQuantity?`&number=${recipeQuantity}`:''}&apiKey=9f84e0adf95c447bac51d4eef9d24191`
-  
-    const apiData = await fetch(apiUrl)
-    const jsonData = await apiData.json()
-    const complexResult = jsonData.results
-    console.log(complexResult)
-
   
     for(let recipe of complexResult) {
         function renderResultStyles () {
