@@ -195,6 +195,26 @@ const getComplexFood = async (formData) => {
     }
 
     
+    foodItem.innerText = ''
+
+
+for (let recipe of foodResult) {
+        const recipeInfo = document.createElement('section')
+        recipeInfo.className = 'recipe-container'
+        recipeInfo.innerHTML = 
+        `<div class="resultContainer">
+             <div class="search-result">
+                 <div class="item">
+                 <img src="${recipe.image}">
+                     <div class="flex-container">
+                         <h1 class='title'>${recipe.title}</h1>
+                     </div>
+                 </div>
+             </div>
+         </div>
+        `
+        foodItem.append(recipeInfo)
+}   
 }
 
 
