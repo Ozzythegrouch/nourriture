@@ -1,3 +1,30 @@
+body {
+  font-family: 'Old Standard TT', serif;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  text-align: center;
+}
+
+.container {
+  color: #14274e;
+}
+
+.seal {
+  color: white;
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.712);
+  color: #14274e;
+  font-weight: 600;
+  text-align: center;
+}
+
 .bio-item {
   margin: 0 25px;
   text-align: center;
@@ -7,6 +34,10 @@
   display: none;
   font-size: 1rem;
   width: 250px;
+}
+
+.food-title {
+  margin: 15px 0;
 }
 
 .container {
@@ -38,7 +69,7 @@
 
 .navbar .nav-container a {
   text-decoration: none;
-  color: #0e2431;
+  color: #14274e;
   font-weight: 500;
   font-size: 1.2rem;
   padding: 0.7rem;
@@ -54,8 +85,6 @@
 }
 /* ********** */
 /* Desktop styles */
-
-
 
 .seal {
 align-items: center;
@@ -77,7 +106,6 @@ overflow: hidden;
 height: 62px;
 width: 62px;
 font-size:13px;
-
 }
 
 .burger {
@@ -91,20 +119,26 @@ background-color: #14274e;
 }
 
 .links{
-font-size: 1.2rem;
-width: 90%;
+/* align-items: center; */
+font-size: 1rem;
+width: 100%;
 display: flex;
-justify-content: space-between;
+flex-wrap: wrap;
+justify-content: right;
 list-style: none;
-/* background-color: #14274e; */
+text-align: center;
+}
+.links li:hover {
+  color: rgba(255, 255, 255, 0.712)
 }
 
 .links li {
 cursor: pointer;
+flex-direction: row;
+flex-wrap: wrap;
 position: relative;
+margin: 0 10px;
 transition: 0.3s ease;
-padding: 20px;
-/* flex-direction: row; */
 }
 .links li::after {
 content: "";
@@ -130,11 +164,23 @@ z-index: 20;
 /* Mobile */
 
 
+button {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-width: thin;
+  border-color: #14274e;
+  color: #14274e;
+  font-weight:bold;
+  /* opacity: 0.75; */
+  outline: #14274e;
+  cursor: pointer;;
+}
 
-.myButton {
+
+.myButton, .userInput {
   border-radius: 5px;
-  width: fit-content;
+  font-size: 1rem;
   margin-left: 10px;
+  padding: 5px;
 }
 
 .nameComponent {
@@ -162,7 +208,7 @@ z-index: 20;
 
 .messageFade {
 animation-name: fade-in-out;
-animation-duration: 5s;
+animation-duration: 2.5s;
 animation-iteration-count: 1;
 font-size: 2rem;
 opacity: 0;
@@ -171,7 +217,7 @@ opacity: 0;
 
 .contentContainerToFade {
 animation-name: fade-in;
-animation-duration: 3s;
+animation-duration: 1s;
 }
 
 #contentContainer {
@@ -219,7 +265,6 @@ display: block;
 }
 
 
-
 .bio-item {
   margin: 0 25px;
   text-align: center;
@@ -248,13 +293,11 @@ display: block;
   text-decoration: underline;
   /* transition: 0.3s ease; */
 }
-/* .fas fa-utensils{
+.fas fa-utensils{
 position: relative;
   top:5px;
   left:5px; 
-} */
-
-
+}
 
 
 .splash-screen {
@@ -272,13 +315,42 @@ position: relative;
   opacity: .25;
 }
 
-  .userInput {
-    height: 55px;
-    width: 25%;
-    outline: none;
-    border-radius: 5px;
-    font-size: 18px;
-  }
+#ingredient,
+#live-search-cuisine,
+#dietary-choices,
+#allergies,
+#carbs,
+#time,
+#recipe-quantity {
+  margin: 10px;
+}
+
+.allergy-labels,
+.diet-labels {
+  align-items: center;
+  column-count: 4;
+  display: column;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.allergy-labels input,
+.diet-labels input {
+  height: 20px;
+  width: 20px;
+}
+
+.allergy-labels label,
+.diet-labels label {
+  display: block;
+}
+
+.allergy-labels label,
+.allergy-labels input,
+.diet-labels label,
+.diet-labels label {
+  margin-bottom: 10px;
+}
 
  .ingredients {
   height: 55px;
@@ -286,4 +358,44 @@ position: relative;
   outline: none;
   border-radius: 5px;
   font-size: 18px;
- }
+}
+
+.food-search,
+.food-random,
+.food-joke,
+#recipe-quantities,
+#allotted-time,
+#cuisine,
+#ingredients {
+  border-radius: 5px;
+  font-size: 0.8rem;
+  padding: 4px;
+}
+
+input::placeholder {
+  color: gray;
+  font-style: italic;
+}
+
+.btn-box {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 50%;
+}
+
+.input-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.left-align {
+  text-align: left;
+}
+
+.food-form {
+  text-align: center;
+}
