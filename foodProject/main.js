@@ -186,20 +186,25 @@ const getComplexFood = async (formData) => {
         const comResInfo = document.createElement('div')
         comResInfo.className = 'recipe-container'
         comResInfo.innerHTML = 
-        `<div>${titDis}</div>
-         <img src = "${imDis}"/>
-        
-        <div>${cookTime}</div>
+        `<div class="resultContainer">
+            <div class="search-result">
+                <div class="item">
+                <img class='food-img' src = "${imDis}"/>
+                    <div class="flex-container">
+                         <h1 class='title'>${titDis}</h1>
+                         <br>
+                         <h3 class='cook-time'>${cookTime} min </h3>
+                     </div>
+                </div>
+            </div>
+        </div>
         `
         foodItem.append(comResInfo)
     }
-    return JSON.stringify(data, null, 4);
-  }
 
-  
+
+  const resultsContainer = document.getElementById('food-result')
     for(let recipe of complexResult) {
-        function renderResultStyles () {
-        const resultsContainer = document.getElementsByClassName('food-result')
         const recipeInfo = document.createElement('section')
 
         recipeInfo.className = 'recipe-container'
@@ -207,7 +212,7 @@ const getComplexFood = async (formData) => {
         `<div class="resultContainer">
              <div class="search-result">
                  <div class="item">
-                 <img src="${recipe.image}">
+                 <img class='food-img' src="${recipe.image}">
                      <div class="flex-container">
                          <h1 class='title'>${recipe.title}</h1>
                      </div>
@@ -215,10 +220,7 @@ const getComplexFood = async (formData) => {
              </div>
          </div>
         `
-        results.innerHTML = resultsHtml;
-        resultsContainer.append(results);
-        renderResultsStyles();
-    }
+        resultsContainer.append(recipeInfo);
     
 
     // const nutrition = complexResult.nutrition
@@ -236,6 +238,7 @@ const getComplexFood = async (formData) => {
     // }
 
     // foodItem.append(comResInfo)
+}
 }
 
 
@@ -258,11 +261,12 @@ const getRandomFood = async () => {
     `<div class="resultContainer">
         <div class="search-result">
             <div class="item">
-                <img src = "${foodRecipeImage}"></img>
+                <img class='food-img' src = "${foodRecipeImage}"></img>
                     <div class="flex-container">
-                        <h1 class= 'title'>${foodRecipeTitle}</h1>
+                        <h2 class= 'title'>${foodRecipeTitle}</h2>
                         <h6>"${foodServings} servings"</h6>
-                        <h6>"${foodReady} minutes to be ready"</h6>
+                        <br>
+                        <h6>"${foodReady} min"</h6>
                     </div>
             </div>
         </div>
