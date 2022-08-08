@@ -29,6 +29,7 @@ const carbsChoice = document.getElementById('carbs')
 const allottedTime = document.getElementById('allotted-time')
 const recipeQuantity = document.getElementById('recipe-quantity')
 const foodForm = document.querySelector('.food-form')
+
 // const ingredient = document.getElementById('ingredient')
 
 function contentFade() {
@@ -162,7 +163,8 @@ function stringifyFormData(fd) {
 const getComplexFood = async (formData) => {
     
     const ingredients = formData.ingredients
-    const cuisine = formData.cuisine
+    const cuisine = formData.search
+    console.log(cuisine)
     const dietaryChoice = formData.dietaryChoices
     const intolerances = formData.allergies
     const lowCarb = formData.lowCarb
@@ -174,18 +176,21 @@ const getComplexFood = async (formData) => {
     const apiData = await fetch(apiUrl)
     const jsonData = await apiData.json()
     const complexResult = jsonData.results
-    console.log(complexResult)
+    
     foodItem.innerText = ''
 
-    
-
     for(let comRes of complexResult) {
-        const titDis = comRes.title
-        const imDis = comRes.image
-        const cookTime = comRes.readyInMinutes
-
+        const titDis = comRes.title //title display
+        const imDis = comRes.image //image display
+        const cookTime = comRes.readyInMinutes // time display
+        const ingDis = comRes.nutrition.ingredients //ingredients
+        const nuDis = comRes.nutrition // nutrition
+        const sumDis = comRes.summary // summary of dish
+        
+        
         const comResInfo = document.createElement('div')
         comResInfo.className = 'recipe-container'
+        // TODO determine whether to include ingDis, sumDis and nuDis in the HTML below (@Oscar)
         comResInfo.innerHTML = 
         `<div class="wrapper-grid" class="entireBox">
             <div class="resultContainer" class="boxBody">
@@ -198,9 +203,6 @@ const getComplexFood = async (formData) => {
             </div>
           </div>
         `
-        foodItem.append(comResInfo)
-    }
-
 
   const resultsContainer = document.getElementById('food-result')
     for(let recipe of complexResult) {
@@ -236,6 +238,32 @@ const getComplexFood = async (formData) => {
 
     // foodItem.append(comResInfo)
 }
+// TODO: this does not render @Oscar (ask me why)
+        const ingredientUl = document.createElement('ul')
+
+        for(let ingName of ingDis) {
+            const ingNameDis = ingName.name
+            const ingredientLi = document.createElement('li')
+            ingredientLi.innerText = ingNameDis
+            ingredientUl.append(ingredientLi)
+            
+        }
+
+        const nutritionUl = document.createElement('ul')
+
+        for(let nuFacts of nuDis) {
+            const nuFactsDis = nuFacts.nutrients
+            const nutritionLi = document.createElement('li')
+            nutritionLi.innerText = nuFactsDis
+            nutritionUl.append(nutritionLi)
+        }
+
+        foodItem.append(comResInfo)
+        console.log(ingDis)
+        console.log(nuDis)
+        console.log(sumDis)
+        // OSCAR END
+    }  
 }
 
 
