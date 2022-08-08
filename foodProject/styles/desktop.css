@@ -31,6 +31,7 @@
   display: flex;
 }
 
+
 .navbar .nav-container li {
   list-style: none;
 }
@@ -83,9 +84,6 @@ font-size:13px;
 display: none;
 }
 
-
-
-
 .logo {
 font-size: 2rem;
 font-weight: bold;
@@ -93,7 +91,6 @@ background-color: #14274e;
 }
 
 .links{
-
 font-size: 1.2rem;
 width: 90%;
 display: flex;
@@ -101,6 +98,7 @@ justify-content: space-between;
 list-style: none;
 /* background-color: #14274e; */
 }
+
 .links li {
 cursor: pointer;
 position: relative;
