@@ -1,14 +1,29 @@
 
   .entireBox {
     box-sizing: border-box;
-    margin: 0px;
+    margin: 2rem;
     padding: 0px;
+    grid-gap: 2rem;
+  }
+
+  .food-result {
+    background-color: grey;
+    margin-top: 40px;
+    /* columns: 2 auto; */
+    grid-template-columns: repeat(auto-fit, 20rem);
+    display: grid;
+    justify-content: center;
+    /* background: linear-gradient(transparent, black); */
   }
   
+
   .wrapper-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 20rem);
+    /* display: grid; */
+    /* grid-template-columns: minmax(300px, 1fr); */
+    /* grid-template-columns: repeat(auto-fit, 20rem); */
     justify-content: center;
+    /* margin: 2rem; */
+    /* grid-gap: 2rem; */
   }
   
   .resultContainer {
@@ -57,101 +72,19 @@
     font-weight: bold;
     color: white;
     padding: 1rem;
-    background-color: var(--clr-primary);
     background-color: #14274e;
+    border-radius: 1rem;
   }
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* section {
-    width: 40%;
-    display: flex;
-} */
-
-
-/* .resultContainer {
-    width: 50%;
-    height: auto;
-    /* max-width: 1200px; */
-    /* margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-} */ 
-
-/* .recipe-container{
-    display: grid;
-    grid-template-columns: 2fr;
-    justify-content: center;
-    grid-gap: 2rem;
-} */
 /* 
-.search-result {
-    text-align: center;
-    border-radius: 8px;
-    position: relative;
-    background-color: #14274e;
-}  */
-
-/* .item {
-    width: 400px;
-    border-radius: 8px;
-    padding: 15px;
-    padding-bottom: 120px;
-    overflow: hidden;
-    background-color: #14274e;
+  @media screen and (min-width: 500px) {
+    .wrapper-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.flex-container {
-    display: flex;  
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: auto;
-} */
-
-
-/* .food-img {
-    width: 8rem;
-    clip-path: circle(60px at center);
-    margin-top: 4.5rem;
-} */
-
-/* .title {
-    color: whitesmoke;
-    margin: 10px 10px 0 0;
-    font-size: 1.5rem;
-    font-weight: 400;
-} */
-
-/* .button {
-    text-decoration: none;
-    text-align: center;
-    width: 130px;
-    padding: 10px 0;
-    border-radius: 15px;
-    font-size: 1.4rem;
-} */
-
-/* .item-data {
-    color: whitesmoke;
-    display: block;
-    margin-top: 10px;
-    font-size: 1.4rem;
-    letter-spacing: .05rem;
-    line-height: 2rem;
-} */
-
-/* .cook-time {
-    color: whitesmoke;
-} */
+@media screen and (min-width: 760px) {
+    .wrapper-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+   */
