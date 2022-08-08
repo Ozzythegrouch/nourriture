@@ -399,3 +399,163 @@ input::placeholder {
 .food-form {
   text-align: center;
 }
+
+
+
+#get_meal {
+  font-family: open_sanslight, sans-serif;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.class {
+  box-sizing: border-box;
+  margin-top: 0;
+  font-family: open_sanslight, sans-serif;
+  color: #000;
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-weight: normal;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  padding: 0;
+  display: block;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+#recipeimage {
+  border: 6px solid #f1f1f1;
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.ready,.servings,.vegetarian, .vegan, .glutenFree, .dairyFree{
+  font-family: open_sanslight, sans-serif;
+  color: #000;
+  font-size: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  line-height: 1;
+  font-weight: bold;
+  font-style: italic;
+  text-align:left;
+  /* line-height: 1.6; */
+  font-size: 12px;
+  display:flex;
+  
+
+}
+
+.summary {
+  padding: 30px!;
+  background: #f2f2f2;
+  line-height: 1.6;
+  text-align: justify;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  margin: 10;
+  box-sizing: border-box;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px; 
+  color: black;
+  box-sizing: border-box;
+}
+
+
+
+.ingredients{
+  font-family: open_sanslight, sans-serif;
+  text-align:left;
+  line-height: 1.6;
+  font-size: 14px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  
+}
+
+.ingredients li{
+  display: flex; 
+  
+  
+}
+
+.ingredients li p{
+  margin-right: 14px;
+  list-style-type: circle;
+}
+
+.ingredients ul p {
+  font-family: open_sanslight, sans-serif;
+  font-size: 12px;
+  color: black;
+  /* margin-right: 3px; */
+  margin: 1;
+  padding: 1; 
+  text-align:end;
+
+}
+
+.ingredients ul{
+  margin-top: 1px;
+  margin-bottom: 10px;
+}
+.instructions{
+  font-family: open_sanslight, sans-serif;
+  text-align:left;
+  line-height: 1.6;
+  font-size: 14px;
+  display: block; 
+}
+
+.stepStyle{
+  font-family: open_sanslight, sans-serif;
+  font-size: 1.5em;
+  list-style: decimal;
+  font-size: 105%;
+  box-sizing: border-box; 
+  font-weight: bold; 
+  border-radius: 50%; 
+  width: 1px;
+  height: 1px;
+  padding: 2px;
+  background: rgb(196, 17, 17);
+  border: 3px solid rgb(196, 17, 17);
+  color: white;
+  text-align: center;
+}
+
+.stepstyletext{
+  font-family: open_sanslight, sans-serif;
+  text-align:left;
+  line-height: 1.6;
+  font-size: 14px;
+  display:inline;
+}
+
+ul li{
+  font-family: open_sanslight, sans-serif;
+  font-size: 12px;
+  color: black;
+  list-style-type: circle;
+   margin: 0;
+  padding: 0; 
+}
+

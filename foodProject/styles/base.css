@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@1&display=swap');
 * {
-    font-family: sans-serif;
+    font-family: open_sanslight, sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -52,5 +52,35 @@ img {
   cursor: pointer;
   height: 250px;
   width: 250px;
+}
+
+h2{
+  margin-top: 40px;
+  font-size: 2rem;
+  margin-bottom: 6px;
+  font-family: open_sanslight,sans-serif;
+  color: #000;
+  font-weight: normal;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  padding: 0;
+  box-sizing: border-box;
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+h3 {
+  font-family: open_sanslight, sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+h5 {
+  font-family: open_sanslight, sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
 }
 
