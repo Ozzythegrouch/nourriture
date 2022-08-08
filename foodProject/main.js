@@ -5,7 +5,7 @@ const myButton = document.querySelector('.myButton');
 const content = document.querySelector('#contentContainer')
 const messageFade = document.querySelector('#messageFade')
 const nameComp = document.querySelector('.nameComponent')
-const burger = document.querySelector(".fa-bars");
+// const burger = document.querySelector(".fa-bars");
 const links = document.querySelector(".links");
 
 const introImage = document.querySelector('.splash-screen')
@@ -186,15 +186,55 @@ const getComplexFood = async (formData) => {
         const comResInfo = document.createElement('div')
         comResInfo.className = 'recipe-container'
         comResInfo.innerHTML = 
-        `<div>${titDis}</div>
-         <img src = "${imDis}"/>
-        
-        <div>${cookTime}</div>
+        `<div class="wrapper-grid" class="entireBox">
+            <div class="resultContainer" class="boxBody">
+                <div class='banner-img'></div>
+                <img src="${imDis}" alt='profile image' class="profile-img">
+                <h1 class="recipeName">${titDis}</h1>
+                <h3 class='cook-time'>${cookTime} min </h3>
+                <br>
+            <button class='viewRecipeBtn'>View Recipe</button>
+            </div>
+          </div>
         `
         foodItem.append(comResInfo)
     }
 
+
+  const resultsContainer = document.getElementById('food-result')
+    for(let recipe of complexResult) {
+        const recipeInfo = document.createElement('div')
+        recipeInfo.className = 'recipe-container'
+        recipeInfo.innerHTML = 
+        `<div class="wrapper-grid" class="entireBox">
+            <div class="resultContainer" class="boxBody">
+                <div class='banner-img'></div>
+                <img src="${recipe.image}" alt='profile image' class="profile-img">
+                <h1 class="recipeName">${recipe.title}</h1>
+                <h3 class='cook-time'>${cookTime} min </h3>
+                <br>
+            <button class='viewRecipeBtn'>View Recipe</button>
+        </div>
+        `
+        resultsContainer.append(recipeInfo);
     
+
+    // const nutrition = complexResult.nutrition
+    // const cookTime = complexResult.readyInMinutes
+
+    // for(let comRes of complexResult) {
+    //     const comResInfo = document.createElement('div')
+    //     comResInfo.className = 'recipe-container'
+    //     comResInfo = inner.innerHTML = 
+    //     `<div>${comRes.title}</div>
+    //     <img>${comRes.image}</div>
+    //     <div>${nutrition}</div>
+    //     <div>${cookTime}</div>
+    //     `
+    // }
+
+    // foodItem.append(comResInfo)
+}
 }
 
 
@@ -214,12 +254,16 @@ const getRandomFood = async () => {
     const recipeInfo = document.createElement('div')
     recipeInfo.className = 'random-container'
     recipeInfo.innerHTML = 
-    `<h1>${foodRecipeTitle}</h1>
-    <img src = "${foodRecipeImage}"></img>
-    <h6>"${foodServings} servings"</h6>
-    <h6>"${foodReady} minutes to be ready"</h6>`
-
-
+    `<div class="wrapper-grid" class="entireBox">
+        <div class="resultContainer" class="boxBody">
+            <div class='banner-img'></div>
+            <img src = "${foodRecipeImage}" alt='profile image' class="profile-img">
+            <h1 class="recipeName">${foodRecipeTitle}</h1>
+            <h3 class='cook-time'>${foodReady} min </h3>
+            <h5>${foodServings} servings</h5>
+            <br>
+        <button class='viewRecipeBtn'>View Recipe</button>
+    </div>`
 
     foodItem.append(recipeInfo)
     
@@ -263,11 +307,11 @@ foodJokeButton.addEventListener('click',getFoodJoke)
 //     bioText.style.display = 'block';
 // });
 
-burger.addEventListener("click", () => {
-  burger.classList.toggle("fa-times");
-  links.classList.toggle("links");
-  links.classList.toggle("links-active");
-});
+// burger.addEventListener("click", () => {
+//   burger.classList.toggle("fa-times");
+//   links.classList.toggle("links");
+//   links.classList.toggle("links-active");
+// });
 
 // "links" toggle removes link class when we click on menu
 // "links-active" toggle when clicked the navigation menu appears 

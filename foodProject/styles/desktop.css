@@ -11,7 +11,7 @@
 
 .container {
   max-width: 1050px;
-  width: 90%;
+  /* width: 90%; */
   margin: auto;
 }
 
@@ -30,6 +30,7 @@
 .navbar .menu-items {
   display: flex;
 }
+
 
 .navbar .nav-container li {
   list-style: none;
@@ -83,9 +84,6 @@ font-size:13px;
 display: none;
 }
 
-
-
-
 .logo {
 font-size: 2rem;
 font-weight: bold;
@@ -93,7 +91,6 @@ background-color: #14274e;
 }
 
 .links{
-
 font-size: 1.2rem;
 width: 90%;
 display: flex;
@@ -101,10 +98,12 @@ justify-content: space-between;
 list-style: none;
 /* background-color: #14274e; */
 }
+
 .links li {
 cursor: pointer;
 position: relative;
 transition: 0.3s ease;
+padding: 20px;
 /* flex-direction: row; */
 }
 .links li::after {
@@ -142,14 +141,14 @@ z-index: 20;
   display: flex;
   justify-content: center;
   padding: 40px;
-  margin-top: 250px;
+  margin-top: 150px;
 }
 
 .message {
   display: flex;
   justify-content: center;
   padding: 30px;
-  margin-top: 350px;
+  margin-top: 150px;
 }
 
 .autocom-box #items-list{
@@ -160,9 +159,6 @@ z-index: 20;
   cursor: default;
   border-radius: 3px;
 }
-
-
-
 
 .messageFade {
 animation-name: fade-in-out;
@@ -221,9 +217,6 @@ border-radius: 3px;
 .search-input.active .autocom-box li{
 display: block;
 }
-
-
-
 
 
 
