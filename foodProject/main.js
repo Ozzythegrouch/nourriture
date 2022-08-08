@@ -186,40 +186,57 @@ const getComplexFood = async (formData) => {
         const comResInfo = document.createElement('div')
         comResInfo.className = 'recipe-container'
         comResInfo.innerHTML = 
-        `<div class="resultContainer">
-            <div class="search-result">
-                <div class="item">
-                <img class='food-img' src = "${imDis}"/>
-                    <div class="flex-container">
-                         <h1 class='title'>${titDis}</h1>
-                         <br>
-                         <h3 class='cook-time'>${cookTime} min </h3>
-                     </div>
-                </div>
-            </div>
+        `<div class="wrapper-grid" class="entireBox">
+            <div class="resultContainer" class="boxBody">
+                <div class='banner-img'></div>
+                <img src="${imDis}" alt='profile image' class="profile-img">
+                <h1 class="recipeName">${titDis}</h1>
+                <h3 class='cook-time'>${cookTime} min </h3>
+                <br>
+            <button class='viewRecipeBtn'>View Recipe</button>
         </div>
         `
+        // `<div class="search-result">
+        //     <div class="item">
+        //         <img class='food-img' src = "${imDis}"/>
+        //             <div class="flex-container">
+        //                  <h1 class='title'>${titDis}</h1>
+        //                  <br>
+        //                  <h3 class='cook-time'>${cookTime} min </h3>
+        //              </div>
+        //     </div>
+        // </div>
+        // `
         foodItem.append(comResInfo)
     }
 
 
   const resultsContainer = document.getElementById('food-result')
     for(let recipe of complexResult) {
-        const recipeInfo = document.createElement('section')
-
+        const recipeInfo = document.createElement('div')
         recipeInfo.className = 'recipe-container'
         recipeInfo.innerHTML = 
-        `<div class="resultContainer">
-             <div class="search-result">
-                 <div class="item">
-                 <img class='food-img' src="${recipe.image}">
-                     <div class="flex-container">
-                         <h1 class='title'>${recipe.title}</h1>
-                     </div>
-                 </div>
-             </div>
-         </div>
+        `<div class="wrapper-grid" class="entireBox">
+            <div class="resultContainer" class="boxBody">
+                <div class='banner-img'></div>
+                <img src="${recipe.image}" alt='profile image' class="profile-img">
+                <h1 class="recipeName">${recipe.title}</h1>
+                <h3 class='cook-time'>${cookTime} min </h3>
+                <br>
+            <button class='viewRecipeBtn'>View Recipe</button>
+        </div>
         `
+        // `<div class="resultContainer">
+        //      <div class="search-result">
+        //          <div class="item">
+        //          <img class='food-img' src="${recipe.image}">
+        //              <div class="flex-container">
+        //                  <h1 class='title'>${recipe.title}</h1>
+        //              </div>
+        //          </div>
+        //      </div>
+        //  </div>
+        // `
         resultsContainer.append(recipeInfo);
     
 
@@ -258,19 +275,29 @@ const getRandomFood = async () => {
     const recipeInfo = document.createElement('div')
     recipeInfo.className = 'random-container'
     recipeInfo.innerHTML = 
-    `<div class="resultContainer">
-        <div class="search-result">
-            <div class="item">
-                <img class='food-img' src = "${foodRecipeImage}"></img>
-                    <div class="flex-container">
-                        <h2 class= 'title'>${foodRecipeTitle}</h2>
-                        <h6>"${foodServings} servings"</h6>
-                        <br>
-                        <h6>"${foodReady} min"</h6>
-                    </div>
-            </div>
-        </div>
+    `<div class="wrapper-grid" class="entireBox">
+        <div class="resultContainer" class="boxBody">
+            <div class='banner-img'></div>
+            <img src = "${foodRecipeImage}" alt='profile image' class="profile-img">
+            <h1 class="recipeName">${foodRecipeTitle}</h1>
+            <h3 class='cook-time'>${foodReady} min </h3>
+            <h6>"${foodServings} servings"</h6>
+            <br>
+        <button class='viewRecipeBtn'>View Recipe</button>
     </div>`
+    // `<div class="resultContainer">
+    //     <div class="search-result">
+    //         <div class="item">
+    //             <img class='food-img' src = "${foodRecipeImage}"></img>
+    //                 <div class="flex-container">
+    //                     <h2 class= 'title'>${foodRecipeTitle}</h2>
+    //                     <h6>"${foodServings} servings"</h6>
+    //                     <br>
+    //                     <h6>"${foodReady} min"</h6>
+    //                 </div>
+    //         </div>
+    //     </div>
+    // </div>`
 
     foodItem.append(recipeInfo)
     
