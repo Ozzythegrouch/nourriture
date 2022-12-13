@@ -214,7 +214,6 @@ const getComplexFood = async (formData) => {
                 <div class='banner-img'></div>
                 <img src="${recipe.image}" alt='profile image' class="profile-img">
                 <h1 class="recipeName">${recipe.title}</h1>
-                <h3 class='cook-time'>${recipe.cookTime} min </h3>
                 <br>
             <button class='viewRecipeBtn'>View Recipe</button>
         </div>
