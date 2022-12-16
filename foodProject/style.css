@@ -242,7 +242,7 @@ body {
 
  .messageFade {
   animation-name: fade-in-out;
-  animation-duration: 5s;
+  animation-duration: 2s;
   animation-iteration-count: 1;
   font-size: 2rem;
   opacity: 0;

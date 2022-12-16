@@ -133,12 +133,14 @@ text-align: center;
 }
 
 .links li {
+list-style-type: none;  
 cursor: pointer;
 flex-direction: row;
 flex-wrap: wrap;
 position: relative;
 margin: 0 10px;
 transition: 0.3s ease;
+font-size: 1.35rem;
 }
 .links li::after {
 content: "";
