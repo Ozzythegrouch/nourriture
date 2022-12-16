@@ -254,7 +254,7 @@ body {
 } 
  .contentContainerToFade {
   animation-name: fade-in;
-  animation-duration: 3s;
+  animation-duration: 2s;
  }
 
  #contentContainer {

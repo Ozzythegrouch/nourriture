@@ -127,6 +127,7 @@ flex-wrap: wrap;
 justify-content: right;
 list-style: none;
 text-align: center;
+text-decoration: underline;
 }
 .links li:hover {
   color: rgba(255, 255, 255, 0.712)
