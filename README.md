@@ -50,9 +50,14 @@ Digital Crafts Cohort built this page as our first assignment.
 
 Anna worked on the Introduction Splash page and cuisine live search functionality.
 
+Anna used HTML, CSS, and javascript for the splash page. Used javascript to make the live search functionality work.
+
 [Hodan Github](https://github.com/hodansuleiman)
 
 Hodan worked on the mobile navbar and random recipe page.
+
+Hodan used javscript and html for the mobile navbar and random recipe page functionality
+
 
 [Oscar Github](https://github.com/Ozzythegrouch)
 
@@ -65,6 +70,8 @@ The API call was one of the trickiest portions of this project. Making sure the 
 [Ron Github](https://github.com/rcleveland30)
 
 Ron worked on the title landing page and contributors page.
+
+Ron used CSS and bootstrap to work on the styling for the title page and contributor page.
 
 # Technologies Used
 
