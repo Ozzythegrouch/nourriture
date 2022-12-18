@@ -48,22 +48,23 @@ Digital Crafts Cohort built this page as our first assignment.
 
 [Anna Github](https://github.com/Anna-Dosev)
 
-    Anna worked on the Introduction Splash page and cuisine live search functionality.
+Anna worked on the Introduction Splash page and cuisine live search functionality.
 
 [Hodan Github](https://github.com/hodansuleiman)
 
-    Hodan worked on the mobile navbar and random recipe page.
+Hodan worked on the mobile navbar and random recipe page.
 
 [Oscar Github](https://github.com/Ozzythegrouch)
 
-    Oscar worked on the API calls for the site and jokes section. 
-    Wrote the README file for github. Made site ready for deployment. 
+Oscar worked on the API calls for the site and jokes section. 
+Wrote the README file for github. Made site ready for deployment. 
 
-    Oscar used javascript, HTML, and css to complete the responsibilities he had. The API call was one of the trickiest portions of this project. Making sure the string interpolation worked within the call was arduous. 
+Oscar used javascript, HTML, and css to complete the responsibilities he had. 
+The API call was one of the trickiest portions of this project. Making sure the string interpolation worked within the call was arduous. 
 
 [Ron Github](https://github.com/rcleveland30)
 
-    Ron worked on the title landing page and contributors page.
+Ron worked on the title landing page and contributors page.
 
 # Technologies Used
 
