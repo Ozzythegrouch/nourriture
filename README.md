@@ -70,18 +70,18 @@ Digital Crafts Cohort built this page as our first assignment.
 <div class="skillContainer">
 <div class="skillContainerHTML">
 <img src="foodProject/assets/logo/icons8-html-5-96.svg" class="imageLogo" />
-<h3>HTML5</h3>
+<h3><a target="_blank" href="https://icons8.com/icon/Q5FXgRZybr2A/html-5-is-a-software-solution-stack-that-defines-the-properties-and-behaviors-of-web-page">HTML 5 </a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></h3>
 </div>
 <div class="skillContainerCSS">
 <img src="foodProject/assets/logo/icons8-css3-96.svg" class="imageLogo" />
-<h3>CSS</h3>
+<h3><a target="_blank" href="https://icons8.com/icon/21278/css3">CSS</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></h3>
 </div>
 <div class="skillContainerJavaScript">
 <img src="foodProject/assets/logo/icons8-javascript.svg" class="imageLogo" />
-<h3>JavaScript</h3>
+<h3><a target="_blank" href="https://icons8.com/icon/PXTY4q2Sq2lG/javascript">JavaScript</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></h3>
 </div>
 <div class="skillContainerJavaScript">
 <img src="foodProject/assets/logo/icons8-bootstrap.svg" class="imageLogo" />
-<h3>Bootstrap</h3>
+<h3><a target="_blank" href="https://icons8.com/icon/84710/bootstrap">Bootstrap</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></h3>
 </div>
 </div>	
