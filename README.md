@@ -68,7 +68,11 @@ You are given ingredients, quantities, and a step by step guide on how to make t
 
 ![Wine Page](./foodProject/assets/functionality/wineLanding.png)
 
+Here you enter the type of meal you are having and your max price point for the wine pair you want to purchase.
+
 ![Wine Results](./foodProject/assets/functionality/wineResults.png)
+
+This is example of a result using steak as the meal choice and $25 as the max price point for the wine. Result gives you the name of the wine with a picture of the wine. You get to know the price, a desciption of the wine, and where you can purchase the wine.
 
 ## Spoonacular API
 ![spoonacular api logo](./foodProject/assets/spoonacularAPI.png)
