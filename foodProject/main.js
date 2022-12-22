@@ -322,8 +322,6 @@ const getFoodJoke = async () => {
     foodItem.append(jokeInfo)
 }
 
-
-
 foodRandomButton.addEventListener('click',getRandomFood)
 foodJokeButton.addEventListener('click',getFoodJoke)
 // allFoodSearchButton.addEventListener('click',getComplexFood)
