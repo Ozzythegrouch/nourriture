@@ -6,6 +6,40 @@ Find your next meal here!
 
 ![image of the starting screen where one enters the screen](./foodProject/assets/nourriture.png)
 
+
+# Team 
+
+Digital Crafts Cohort built this page as our first assignment. 
+
+[Anna Github](https://github.com/Anna-Dosev)
+
+Anna worked on the Introduction Splash page and cuisine live search functionality.
+
+Anna used HTML, CSS, and javascript for the splash page. Used javascript to make the live search functionality work.
+
+[Hodan Github](https://github.com/hodansuleiman)
+
+Hodan worked on the mobile navbar and random recipe page.
+
+Hodan used javscript and html for the mobile navbar and random recipe page functionality
+
+
+[Oscar Github](https://github.com/Ozzythegrouch)
+
+Oscar worked on the API calls for the site and jokes section. 
+Wrote the README file for github. Made site ready for deployment. 
+
+Worked on the Wine Page. Used javascript to create api call, html and css to build style and form.
+
+Oscar used javascript, HTML, and css to complete the responsibilities he had. 
+The API call was one of the trickiest portions of this project. Making sure the string interpolation worked within the call was arduous. 
+
+[Ron Github](https://github.com/rcleveland30)
+
+Ron worked on the title landing page and contributors page.
+
+Ron used CSS and bootstrap to work on the styling for the title page and contributor page.
+
 ## Welcome Screen
 
 Nourriture welcomes you with a splash screen that you are able to enter your name for a personalized feel for your search. One you enter the site you are greeted by a search bar with different parameters.
@@ -32,6 +66,10 @@ Hit the button and your results are shown.
 
 You are given ingredients, quantities, and a step by step guide on how to make the recipe.
 
+![Wine Page](./foodProject/assets/functionality/wineLanding.png)
+
+![Wine Results](./foodProject/assets/functionality/wineResults.png)
+
 ## Spoonacular API
 ![spoonacular api logo](./foodProject/assets/spoonacularAPI.png)
 
@@ -41,37 +79,6 @@ Built using the spoonacular api. Spoonacular hosts data based on ingredients, re
 
 ![menu items, recipes, and products](./foodProject/assets/spoonacular_data.png)
 
-
-# Built by Anna, Hodan, Oscar, Ron
-
-Digital Crafts Cohort built this page as our first assignment. 
-
-[Anna Github](https://github.com/Anna-Dosev)
-
-Anna worked on the Introduction Splash page and cuisine live search functionality.
-
-Anna used HTML, CSS, and javascript for the splash page. Used javascript to make the live search functionality work.
-
-[Hodan Github](https://github.com/hodansuleiman)
-
-Hodan worked on the mobile navbar and random recipe page.
-
-Hodan used javscript and html for the mobile navbar and random recipe page functionality
-
-
-[Oscar Github](https://github.com/Ozzythegrouch)
-
-Oscar worked on the API calls for the site and jokes section. 
-Wrote the README file for github. Made site ready for deployment. 
-
-Oscar used javascript, HTML, and css to complete the responsibilities he had. 
-The API call was one of the trickiest portions of this project. Making sure the string interpolation worked within the call was arduous. 
-
-[Ron Github](https://github.com/rcleveland30)
-
-Ron worked on the title landing page and contributors page.
-
-Ron used CSS and bootstrap to work on the styling for the title page and contributor page.
 
 # Technologies Used
 
